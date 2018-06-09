@@ -28,7 +28,7 @@ class GeetestServiceProvider extends ServiceProvider
 		    $req = $request->only('geetest_key', 'geetest_challenge', 'geetest_validate', 'geetest_seccode');
 			list($geetest_key, $challenge, $validate, $seccode) = array_values($req);
             $key = sprintf(Config::get('geetest.session_key'), $geetest_key);
-			$session = Cache::pull($key);
+			$session = Cache::get($key);
             $data = [
                 'user_id' => @Auth::user() ? @Auth::user()->id : $session['user_id'],
                 'client_type' => 'web',
