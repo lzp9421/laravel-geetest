@@ -30,7 +30,7 @@ class GeetestServiceProvider extends ServiceProvider
             $key = sprintf(Config::get('geetest.session_key'), $geetest_key);
 			$session = Cache::get($key);
             $data = [
-                'user_id' => @Auth::user() ? @Auth::user()->id : $session['user_id'],
+                'user_id' => $session['user_id'],
                 'client_type' => 'web',
                 'ip_address' => $request->ip()
             ];

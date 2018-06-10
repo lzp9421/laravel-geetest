@@ -15,7 +15,7 @@ trait GeetestCaptcha
 	public function getGeetest()
 	{
 		$data = [
-			'user_id' => @Auth::user() ? @Auth::user()->id : uniqid(Str::random(), true),
+			'user_id' => uniqid(),
 			'client_type' => 'web',
 			'ip_address' => Request::ip()
 		];
